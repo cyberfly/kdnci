@@ -10,8 +10,16 @@ class Ticket extends CI_Controller {
 	{
 		$data = array();
 
+		// dapatkan data dari table tickets
+
+		$tickets = $this->ticket_model->getAll();
+
+		// pass tickets data to view
+
+		$data['tickets'] = $tickets;
+
 		// load index.php from folder tickets as content
-			
+
 		$data['content'] = 'tickets/index';
 
 		$this->load->view('templates/backend', $data);
@@ -21,7 +29,7 @@ class Ticket extends CI_Controller {
 
 	public function create()
 	{
-
+		
 	}
 
 	// edit ticket form
