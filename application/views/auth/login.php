@@ -45,19 +45,19 @@
               <div class="text-center mb-6">
                 <img src="./demo/brand/tabler.svg" class="h-6" alt="">
               </div>
-              <form class="card" action="" method="post">
+              <form class="card" action="<?php echo site_url('auth/login'); ?>" method="post">
                 <div class="card-body p-6">
                   <div class="card-title">Login to your account</div>
                   <div class="form-group">
                     <label class="form-label">Email address</label>
-                    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+                    <input type="text" class="form-control" name="identity" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
                   </div>
                   <div class="form-group">
                     <label class="form-label">
                       Password
                       <a href="./forgot-password.html" class="float-right small">I forgot password</a>
                     </label>
-                    <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+                    <input type="password" name="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
                   </div>
                   <div class="form-group">
                     <label class="custom-control custom-checkbox">
