@@ -86,16 +86,10 @@
                     <span class="ml-2 d-none d-lg-block">
                       <span class="text-default">
                         
-                        <?php
-
-                        $user = $this->ion_auth->user()->row();
-
-                        echo $user->first_name . ' ' . $user->last_name ;
-
-                        ?>
+                        <?php echo current_user_fullname(); ?>
 
                       </span>
-                      <small class="text-muted d-block mt-1"><?php echo $user->email; ?></small>
+                      <small class="text-muted d-block mt-1"><?php echo current_user_email(); ?></small>
                     </span>
                   </a>
                   <div class="dropdown-menu dropdown-menu-right dropdown-menu-arrow">
