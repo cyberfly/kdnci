@@ -17,6 +17,7 @@ class Ticket extends CI_Controller {
 		}
 
 		$this->load->model('category_model');
+		$this->load->model('status_model');
 	}
 
 
@@ -77,7 +78,28 @@ class Ticket extends CI_Controller {
 
 			// jika berjaya validation, process form
 
-			echo 'berjaya';
+			// get open status
+
+			$open_status = $this->status_model->getStatusByTitle('Open');
+
+			$ticket_data = array(
+				'subject' => $this->input->post('subject'),
+				'description' => $this->input->post('description'),
+				'category_id' => $this->input->post('category_id'),
+				'user_id' => current_user_id(),
+				'status_id' => $open_status->id,
+				'created_at' => date('Y-m-d H:i:s'),
+			);
+
+			
+			$this->ticket_model->insert($ticket_data);
+
+			// set success message
+
+			$this->session->set_flashdata('success', 'Your ticket has been submitted');
+
+
+			redirect('ticket/index');
 
 		}
 		
