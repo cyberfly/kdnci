@@ -48,3 +48,9 @@ function current_user_email()
 	return $user->email;
 }
 
+function current_user_id()
+{
+	$user = current_user();
+
+	return $user->id;
+}
