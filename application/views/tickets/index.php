@@ -4,6 +4,23 @@
               </h1>
             </div>
 
+            <!-- notification -->
+
+            <?php 
+
+            if($this->session->flashdata('success'))
+            { 
+
+            ?>
+
+              <div class="alert alert-success" role="alert">
+                <?php echo $this->session->flashdata('success'); ?>
+              </div>
+
+            <?php } ?>
+
+            <!-- end of notification -->
+
             <div class="row row-cards row-deck">
               <div class="col-12">
                 <div class="card">
