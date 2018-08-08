@@ -30,7 +30,7 @@
                            
                            ?>
 
-                          <option value="<?php echo $category->id; ?>" ><?php echo $category->title; ?></option>
+                          <option value="<?php echo $category->id; ?>" <?php echo set_select('category_id', $category->id); ?> ><?php echo $category->title; ?></option>
 
 
                           <?php } ?>
