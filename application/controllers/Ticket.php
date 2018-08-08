@@ -46,6 +46,41 @@ class Ticket extends CI_Controller {
 	public function create()
 	{
 		
+		$this->form_validation->set_rules('subject', 'Subject', 'required');
+		$this->form_validation->set_rules('category_id', 'Category', 'required');
+		$this->form_validation->set_rules('description', 'Description', 'required');
+
+		$this->form_validation->set_message('required', 'Sila masukkan medan {field}');
+
+
+		// jika first time load atau validation error, paparkan page
+
+		if ($this->form_validation->run() == FALSE)
+		{
+			$data = array();
+
+			// get categories data from category model
+
+			$categories = $this->category_model->getAll();
+
+			// pass categories data to view
+
+			$data['categories'] = $categories;
+
+			// load index.php from folder tickets as content
+
+			$data['content'] = 'tickets/create';
+
+			$this->load->view('templates/backend', $data);
+		}
+		else {
+
+			// jika berjaya validation, process form
+
+			echo 'berjaya';
+
+		}
+		
 	}
 
 	// edit ticket form
