@@ -29,7 +29,9 @@ class Ticket extends CI_Controller {
 
 		// dapatkan data dari table tickets
 
-		$tickets = $this->ticket_model->getAll();
+		$user_id = current_user_id();
+
+		$tickets = $this->ticket_model->getUserTickets($user_id);
 
 		// pass tickets data to view
 
