@@ -6,18 +6,7 @@
 
             <!-- notification -->
 
-            <?php 
-
-            if($this->session->flashdata('success'))
-            { 
-
-            ?>
-
-              <div class="alert alert-success" role="alert">
-                <?php echo $this->session->flashdata('success'); ?>
-              </div>
-
-            <?php } ?>
+            <?php $this->load->view('templates/notification'); ?>
 
             <!-- end of notification -->
 
