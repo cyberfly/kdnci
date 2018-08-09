@@ -55,7 +55,7 @@
                             <span class="status-icon bg-success"></span> <?php echo $ticket->status_title; ?>
                           </td>
                           <td>
-                            <?php echo $ticket->created_at; ?>
+                            <?php echo gov_datetime($ticket->created_at); ?>
                           </td>
                           <td>
                             <a class="btn btn-primary" href="javascript:void(0)">
