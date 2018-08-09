@@ -11,6 +11,7 @@ class Ticket extends MY_Controller {
 
 		$this->load->model('category_model');
 		$this->load->model('status_model');
+		$this->load->library('notification');
 	}
 
 
@@ -88,6 +89,10 @@ class Ticket extends MY_Controller {
 
 			
 			$this->ticket_model->insert($ticket_data);
+
+			// send email notification
+
+			$this->notification->newTicketNotification($ticket_data);
 
 			// set success message
 
