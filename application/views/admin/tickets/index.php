@@ -10,6 +10,44 @@
 
             <!-- end of notification -->
 
+            <!-- filter -->
+
+            <div class="row">
+
+              <div class="col-4">
+
+              <div class="form-group">
+                  <label class="form-label">Subject</label>
+
+                  <!-- dropdown -->
+
+                  <select name="status_id" class="form-control custom-select">
+
+                    <option value="">Select Status</option>
+
+                    <!-- start loop category -->
+
+                          <?php foreach ($statuses as $status) {
+                           
+                           ?>
+
+                          <option value="<?php echo $status->id; ?>" <?php echo set_select('status_id', $status->id); ?> ><?php echo $status->title; ?></option>
+
+
+                          <?php } ?>
+                    
+                  </select>
+
+                  <!-- end dropdown -->
+              </div>
+                
+              </div>
+              
+            </div>
+
+          
+            <!-- filter -->
+
             <div class="row row-cards row-deck">
               <div class="col-12">
                 <div class="card">
