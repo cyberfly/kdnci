@@ -5,7 +5,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 // Ni admin ticket, hati-hati
 
-class Ticket extends MY_Controller {
+class Ticket extends Admin_Controller {
 
 
 	public function __construct()
