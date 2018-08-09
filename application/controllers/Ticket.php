@@ -2,19 +2,12 @@
 
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Ticket extends CI_Controller {
+class Ticket extends MY_Controller {
 
 
 	public function __construct()
 	{
 		parent::__construct();
-
-		// check if user is logged in
-
-		if (!$this->ion_auth->logged_in())
-		{
-			redirect('auth/login');
-		}
 
 		$this->load->model('category_model');
 		$this->load->model('status_model');
