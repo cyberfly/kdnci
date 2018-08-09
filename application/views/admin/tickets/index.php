@@ -48,7 +48,7 @@
                             <?php echo $ticket->description; ?>
                           </td>
                           <td>
-                            Ali
+                            <?php echo $ticket->email; ?>
                           </td>
                           <td>
                             <?php echo $ticket->category_title; ?>
