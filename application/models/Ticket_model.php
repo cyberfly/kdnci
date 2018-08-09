@@ -28,7 +28,7 @@ class Ticket_model extends CI_Model {
 
 	private function queryTicket()
 	{
-		$this->db->select('tickets.id, tickets.subject, tickets.description, tickets.status_id, tickets.category_id, tickets.created_at, categories.title as category_title, statuses.title as status_title');
+		$this->db->select('tickets.id, tickets.subject, tickets.description, tickets.status_id, tickets.category_id, tickets.created_at, categories.title as category_title, statuses.title as status_title, users.email');
 
 		$this->db->from('tickets');
 
@@ -37,6 +37,8 @@ class Ticket_model extends CI_Model {
 		$this->db->join('categories', 'categories.id = tickets.category_id', 'left');
 
 		$this->db->join('statuses', 'statuses.id = tickets.status_id', 'left');
+
+		$this->db->join('users', 'users.id = tickets.user_id', 'left');
 	}
 
 	public function insert($data)
