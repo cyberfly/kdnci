@@ -1,11 +1,6 @@
 <?php
 
-class Category_model extends CI_Model {
+class Category_model extends MY_Model {
 
-	public function getAll()
-	{
-		$query = $this->db->get('categories');
-
-		return $query->result();
-	}
+	public $table = 'categories';
 }

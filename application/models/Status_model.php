@@ -2,7 +2,9 @@
 
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Status_model extends CI_Model {
+class Status_model extends MY_Model {
+
+	public $table = 'statuses';
 
 	public function getStatusByTitle($title)
 	{
@@ -11,12 +13,5 @@ class Status_model extends CI_Model {
 		$query = $this->db->get('statuses');
 
 		return $query->row();
-	}
-
-	public function getAll()
-	{
-		$query = $this->db->get('statuses');
-
-		return $query->result();
 	}
 }
