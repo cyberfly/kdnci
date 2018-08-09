@@ -18,3 +18,23 @@ class MY_Controller extends CI_Controller
 	}
 
 }
+
+// admin controller
+
+class Admin_Controller extends MY_Controller
+{
+	public function __construct()
+	{
+		parent::__construct();
+
+		// check if user in admin group
+
+		$group = array('admin');
+
+		if (!$this->ion_auth->in_group($group))
+		{
+			echo 'No permission';
+			exit;
+		}
+	}
+}
