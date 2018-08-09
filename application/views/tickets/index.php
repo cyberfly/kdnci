@@ -1,6 +1,8 @@
 <div class="page-header">
               <h1 class="page-title">
                 Ticket List
+
+                <a class="btn btn-primary" href="<?php echo site_url('ticket/create'); ?>">Create Ticket</a>
               </h1>
             </div>
 
