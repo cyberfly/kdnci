@@ -57,7 +57,7 @@ class Ticket extends MY_Controller {
 
 			// get categories data from category model
 
-			$categories = $this->category_model->getAll();
+			$categories = $this->category_model->get_all();
 
 			// pass categories data to view
 

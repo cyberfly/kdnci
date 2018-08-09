@@ -33,7 +33,7 @@ class Ticket extends Admin_Controller {
 
 		// dapatkan status dari table statuses
 
-		$statuses = $this->status_model->getAll();
+		$statuses = $this->status_model->get_all();
 
 		$data['statuses'] = $statuses;
 
