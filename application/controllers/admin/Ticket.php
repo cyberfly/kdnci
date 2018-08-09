@@ -31,6 +31,12 @@ class Ticket extends Admin_Controller {
 
 		$data['tickets'] = $tickets;
 
+		// dapatkan status dari table statuses
+
+		$statuses = $this->status_model->getAll();
+
+		$data['statuses'] = $statuses;
+
 		// load index.php from folder tickets as content
 
 		$data['content'] = 'admin/tickets/index';
