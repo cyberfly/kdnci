@@ -116,7 +116,9 @@ class Ticket extends MY_Controller {
 
 	public function show()
 	{
+		$this->load->library('ReportWord');
 
+		$this->reportword->ticketDetailReport();
 	}
 
 	// delete ticket
