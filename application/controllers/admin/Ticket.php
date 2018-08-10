@@ -65,4 +65,15 @@ class Ticket extends Admin_Controller {
 
 	}
 
+	public function printTicketReportWord()
+	{
+		$this->load->library('ReportWord');
+
+		$tickets = $this->ticket_model->getAll();
+
+		// call reportword library to generate
+
+		$this->reportword->ticketListReport($tickets);
+	}
+
 }
