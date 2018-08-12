@@ -21,7 +21,7 @@
     <script src="<?php echo base_url(); ?>assets/js/require.min.js"></script>
     <script>
       requirejs.config({
-          baseUrl: '.'
+          baseUrl: '<?php echo base_url(); ?>'
       });
     </script>
     <!-- Dashboard Core -->
