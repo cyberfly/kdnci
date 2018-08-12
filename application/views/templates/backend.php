@@ -270,3 +270,16 @@
     </div>
   </body>
 </html>
+<!-- load page javascripts here -->
+
+<?php
+
+if (isset($page_js)) {
+  foreach ($page_js as $js) {
+    $this->load->view($js);
+  }
+}
+
+?>
+
+<!-- end load page javascripts -->
