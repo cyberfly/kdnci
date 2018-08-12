@@ -41,6 +41,23 @@ class Ticket_model extends CI_Model {
 		$this->db->join('users', 'users.id = tickets.user_id', 'left');
 	}
 
+	public function ticketsStatusCount()
+	{
+		$sql = "SELECT
+				tickets.status_id,
+				Count(*) as status_count,
+				statuses.title
+				FROM
+				tickets
+				LEFT JOIN statuses ON statuses.id = tickets.status_id
+				GROUP BY
+				tickets.status_id";
+
+		$query = $this->db->query($sql);
+		
+		return $query->result();		
+	}
+
 	public function insert($data)
 	{
 
