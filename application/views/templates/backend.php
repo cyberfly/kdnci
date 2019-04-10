@@ -136,8 +136,11 @@
               <div class="col-lg order-lg-first">
                 <ul class="nav nav-tabs border-0 flex-column flex-lg-row">
                   <li class="nav-item">
-                    <a href="./index.html" class="nav-link active"><i class="fe fe-home"></i> Home</a>
+                    <a href="<?php echo site_url('dashboard/index'); ?>" class="nav-link active"><i class="fe fe-home"></i> Home</a>
                   </li>
+                    <li class="nav-item">
+                        <a href="<?php echo site_url('scanocr/create'); ?>" class="nav-link"><i class="fe fe-box"></i> Scan OCR</a>
+                    </li>
                   <li class="nav-item">
                     <a href="javascript:void(0)" class="nav-link" data-toggle="dropdown"><i class="fe fe-box"></i> Interface</a>
                     <div class="dropdown-menu dropdown-menu-arrow">
