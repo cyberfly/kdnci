@@ -65,6 +65,118 @@ class ReportWord
 
 		}
 	}
+
+    public function writeWord()
+    {
+        $phpWord = new \PhpOffice\PhpWord\PhpWord();
+
+        $section = $phpWord->addSection(array('pageNumberingStart' => 1));
+
+        // header
+
+        $header = $section->addHeader();
+        $header->addWatermark('./uploads/watermark.jpg', array('positioning' => 'relative', 'marginTop' => 1000, 'width'  => 535, 'wrappingStyle' => 'behind'));
+        $header->addText('This is my fabulous header!');
+
+        // header image
+
+        $header->addImage('./uploads/logo-mbpj.png',['align'=>'right']);
+
+        // footer
+
+        $footer = $section->addFooter();
+//        $footer->addText('Page {PAGE} of {NUMPAGES}.');
+
+        $footer->addPreserveText('Page {PAGE} of {NUMPAGES}.', array('align'=>'center'));
+
+        // paragraph
+
+        $textrun = $section->addTextRun();
+        $textrun->addText('Some text. ');
+        $textrun->addText('And more Text in this Paragraph.');
+
+        $section->addTextBreak();
+
+        $textrun = $section->addTextRun();
+
+        $textrun->addText('New Paragraph! ', ['bold' => true]);
+        $textrun->addText('With text...', ['italic' => true]);
+
+        $lineStyle = array('weight' => 1, 'width' => 100, 'height' => 0, 'color' => 635552);
+        $section->addLine($lineStyle);
+
+        // image
+
+        $imageStyle = array(
+            'width' => 40,
+            'height' => 40,
+            'wrappingStyle' => 'square',
+            'positioning' => 'absolute',
+            'posHorizontalRel' => 'margin',
+            'posVerticalRel' => 'line',
+        );
+
+        $textrun->addImage('./uploads/posts-table.png', $imageStyle);
+
+        $section->addTextBreak();
+
+        // table
+
+        $rows = 10;
+        $cols = 5;
+
+        $section->addText('Basic table', ['name' => 'Times New Roman', 'size' => 16, 'bold' => true]);
+
+        $table = $section->addTable();
+
+        for ($row = 1; $row <= 8; $row++) { $table->addRow();
+            for ($cell = 1; $cell <= 5; $cell++) { $table->addCell(1750)->addText("Row {$row}, Cell {$cell}");
+            }
+        }
+
+        // landscape
+
+        $sectionStyle = array(
+            'orientation' => 'landscape',
+            'marginTop' => 600,
+//            'colsNum' => 2,
+        );
+
+        $section = $phpWord->addSection($sectionStyle);
+
+        // link
+
+        $section->addLink('https://google.com', 'Google');
+
+        // page break
+
+        $section->addPageBreak();
+
+        $section->addText('This is new page break content');
+
+        // comment this if we want to save in disk
+        $this->download();
+
+        $objWriter = \PhpOffice\PhpWord\IOFactory::createWriter($phpWord, 'Word2007');
+
+        $objWriter->save("php://output");
+
+        // uncomment this if we want to save in disk
+//        $objWriter->save('MyDocument.docx');
+
+    }
+
+    public function download()
+    {
+        $file = 'HelloWorld.docx';
+
+        header("Content-Description: File Transfer");
+        header('Content-Disposition: attachment; filename="' . $file . '"');
+        header('Content-Type: application/vnd.openxmlformats-officedocument.wordprocessingml.document');
+        header('Content-Transfer-Encoding: binary');
+        header('Cache-Control: must-revalidate, post-check=0, pre-check=0');
+        header('Expires: 0');
+    }
 }
 
 
