@@ -35,7 +35,7 @@ class Ticket extends MY_Controller {
 
 		$data['content'] = 'tickets/index';
 
-		$this->load->view('templates/backend', $data);
+		$this->load->view('templates/simple_backend', $data);
 	}
 
 	// create ticket form
@@ -68,7 +68,7 @@ class Ticket extends MY_Controller {
 
 			$data['content'] = 'tickets/create';
 
-			$this->load->view('templates/backend', $data);
+			$this->load->view('templates/simple_backend', $data);
 		}
 		else {
 

@@ -41,7 +41,7 @@ class Ticket extends Admin_Controller {
 
 		$data['content'] = 'admin/tickets/index';
 
-		$this->load->view('templates/backend', $data);
+		$this->load->view('templates/simple_backend', $data);
 	}
 
 	// edit ticket form

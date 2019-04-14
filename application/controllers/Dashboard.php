@@ -53,7 +53,7 @@ class Dashboard extends MY_Controller {
 
 		$data['content'] = 'dashboard/index';	
 
-		$this->load->view('templates/backend', $data);
+		$this->load->view('templates/simple_backend', $data);
 	}
 
 	public function about()
