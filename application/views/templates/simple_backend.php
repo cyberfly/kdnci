@@ -63,6 +63,12 @@
                         </a>
                     </li>
                     <li class="nav-item">
+                        <a class="nav-link" href="<?php echo site_url('scanocr/create'); ?>">
+                            <span data-feather="file"></span>
+                            Scan OCR
+                        </a>
+                    </li>
+                    <li class="nav-item">
                         <a class="nav-link" href="#">
                             <span data-feather="file"></span>
                             Orders
