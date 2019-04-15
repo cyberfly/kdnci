@@ -1,5 +1,9 @@
 <?php
 
+require_once 'vendor/autoload.php';
+
+use thiagoalessio\TesseractOCR\TesseractOCR;
+
 class Scanocr extends MY_Controller {
 
     public function __construct()
@@ -7,13 +11,46 @@ class Scanocr extends MY_Controller {
 		parent::__construct();
 	}
 
-    public function create() 
+    public function create($ocr_content=null) 
     {
+        // pass data
+
+        $data['ocr_content'] = $ocr_content;
+        
         // load view
         
         $data['content'] = 'scanocr/create';
 
+        // load JS
+
+        $data['page_js'] = array('scanocr/create-js');
+
 		$this->load->view('templates/simple_backend', $data);
+    }
+
+    public function process() {
+
+        $action = $this->input->post('action');
+
+        if ($action === 'preview') {
+            $this->preview();
+        }
+        else {
+            $this->store();
+        }
+    }
+
+    public function store() 
+    {
+        $title = $this->input->post('title');
+        $content = $this->input->post('content');
+        $summary = $this->input->post('summary');
+
+        var_dump($title);
+        var_dump($content);
+        var_dump($summary);
+
+        // insert ke database
     }
 
     public function preview()
@@ -28,11 +65,15 @@ class Scanocr extends MY_Controller {
 
         $file_path = $uploaded_file_data['upload_data']['full_path'];
 
-        var_dump($file_path);
-
         // 3. gunakan Tesseract untuk extract text dari file tersebut
 
+        $tesseract = new TesseractOCR($file_path);
+
+        $scan_text = $tesseract->run();
+
         // 4. Return extracted text kepada view
+
+        $this->create($scan_text);
     }
 
     public function processUpload()
@@ -49,12 +90,13 @@ class Scanocr extends MY_Controller {
         {
             $error = array('error' => $this->upload->display_errors());
 
-            var_export($error);    
+            var_dump($error);
+            exit;    
         }
         else
         {
             $data = array('upload_data' => $this->upload->data());
-            // var_export($data);
+            
             return $data;
         
         }

@@ -1,14 +1,10 @@
 <h2>Scan OCR</h2>
 
-<form action="<?php echo site_url('scanocr/preview'); ?>" method="POST" enctype="multipart/form-data" >
+<form id="ocr_form" action="<?php echo site_url('scanocr/process'); ?>" method="POST" enctype="multipart/form-data" >
 
     <div class="form-group">
         <label for="">File to Scan</label>
         <input type="file" name="file" class="form-control">
-    </div>
-
-    <div class="form-group">
-        <button type="submit" class="btn btn-primary">Preview</button>
     </div>
 
     <div class="form-group">
@@ -18,7 +14,7 @@
 
     <div class="form-group">
         <label for="">Content</label>
-        <textarea name="content" class="form-control" rows="5"></textarea>
+        <textarea name="content" class="form-control" rows="5"><?php echo $ocr_content; ?></textarea>
     </div>
 
     <div class="form-group">
@@ -26,6 +22,10 @@
         <textarea name="summary" class="form-control" rows="5"></textarea>
     </div>
 
-    <button type="submit" class="btn btn-primary">Submit</button>
+    <div class="form-group">
+        <input id="action" type="hidden" name="action" value="preview" />
+        <button id="preview" type="button" class="btn btn-secondary">Preview</button>
+        <button id="save" type="button" class="btn btn-primary">Submit</button>
+    </div>
 
 </form>
