@@ -11,7 +11,7 @@
     <!-- Bootstrap core CSS -->
     <link href="<?php echo base_url(); ?>assets/css/bootstrap.min.css" rel="stylesheet" />
     <link href="//cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css" rel="stylesheet" />
-    <link href="//cdn.datatables.net/1.10.19/css/dataTables.bootstrap4.min.css" rel="stylesheet" />
+    <!-- <link href="//cdn.datatables.net/1.10.19/css/dataTables.bootstrap4.min.css" rel="stylesheet" /> -->
 
     <style>
         .bd-placeholder-img {
@@ -72,6 +72,12 @@
                         <a class="nav-link" href="<?php echo site_url('ticket/generateTickets'); ?>">
                             <span data-feather="file"></span>
                             Generate Tickets
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="<?php echo site_url('ticket/datatableindex'); ?>">
+                            <span data-feather="file"></span>
+                            Serverside Ticket Datatable 
                         </a>
                     </li>
                     <li class="nav-item">

@@ -172,4 +172,34 @@ class Ticket extends MY_Controller {
 
 	}
 
+	public function datatableIndex()
+	{
+
+		// load index.php from folder tickets as content
+
+		$data['content'] = 'tickets/datatable-index';
+
+		// load JS
+
+		$data['page_js'] = array('tickets/datatable-index-js');
+
+		$this->load->view('templates/simple_backend', $data);
+
+	}
+
+	public function getTicketsDatatable()
+	{
+
+		$this->datatables->select('tickets.id, tickets.subject, tickets.description, ticket_categories.ticket_category_name');
+
+		$this->datatables->from('tickets');
+
+		$this->datatables->join('ticket_categories', 'ticket_categories.ticket_category_id = tickets.category_id');
+
+		$this->datatables->add_column('edit', '<a class="btn btn-primary" href="' . site_url('ticket/edit/$1').'" title="$2" >EDIT</a> <a class="delete btn btn-danger" data-id="$1" href="#" title="$2" >Delete</a>', 'id, subject');
+
+		echo $this->datatables->generate();
+
+	}
+
 }
