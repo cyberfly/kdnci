@@ -2,6 +2,8 @@
 
 defined('BASEPATH') OR exit('No direct script access allowed');
 
+require_once 'vendor/autoload.php';
+
 class Ticket extends MY_Controller {
 
 
@@ -129,6 +131,44 @@ class Ticket extends MY_Controller {
 
 	public function delete()
 	{
+
+	}
+
+	// generate dummy tickets for development
+
+	public function generateTickets()
+	{
+		// load Faker
+
+		$faker = Faker\Factory::create();
+
+		for($i=0; $i<4000; $i++) {
+
+			// get open status
+
+			$open_status = $this->status_model->getStatusByTitle('Open');
+
+			// dummy categories id
+
+			$categories_id = array(1, 2, 3, 4);
+
+			$category_id = $categories_id[array_rand($categories_id)];
+
+			$ticket_data = array(
+				'subject' => $faker->word,
+				'description' => $faker->text,
+				'category_id' => $category_id,
+				'user_id' => current_user_id(),
+				'status_id' => $open_status->id,
+				'created_at' => date('Y-m-d H:i:s'),
+			);
+
+			
+			$this->ticket_model->insert($ticket_data);
+
+		}		
+		
+		echo 'siap';
 
 	}
 

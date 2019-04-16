@@ -69,6 +69,12 @@
                         </a>
                     </li>
                     <li class="nav-item">
+                        <a class="nav-link" href="<?php echo site_url('ticket/generateTickets'); ?>">
+                            <span data-feather="file"></span>
+                            Generate Tickets
+                        </a>
+                    </li>
+                    <li class="nav-item">
                         <a class="nav-link" href="#">
                             <span data-feather="file"></span>
                             Orders
