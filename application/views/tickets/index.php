@@ -19,7 +19,7 @@
                     <h3 class="card-title">Tickets</h3>
                   </div>
                   <div class="table-responsive">
-                    <table class="table card-table table-vcenter text-nowrap">
+                    <table id="datatable" class="table card-table table-vcenter text-nowrap">
                       <thead>
                         <tr>
                           <th class="w-1">No.</th>
@@ -29,7 +29,7 @@
                           <th>Status</th>
                           <th>Created</th>
                           <th>Action</th>
-                          <th></th>
+                      
                         </tr>
                       </thead>
                       <tbody>

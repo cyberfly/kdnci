@@ -35,6 +35,10 @@ class Ticket extends MY_Controller {
 
 		$data['content'] = 'tickets/index';
 
+		// load JS
+
+		$data['page_js'] = array('tickets/index-js');
+
 		$this->load->view('templates/simple_backend', $data);
 	}
 
