@@ -78,7 +78,75 @@
 
         });
 
-    });
+
+        // end of data table
+
+
+        // when click delete button
+
+        $("#datatable").on("click", ".delete", function() {
+
+            // get clicked button data-id value
+
+            var ticket_id = $(this).attr('data-id');
+
+            // get clicked button data-title value
+
+            var ticket_title = $(this).attr('data-title');
+
+            confirmDelete(ticket_id, ticket_title);
+        } );
+
+        // show delete confirm modal
+
+        function confirmDelete(id, title)
+        {
+            Swal.fire({
+                title: 'Anda pasti nak padam ' + title + '?',
+                text: 'Tindakan ini tidak boleh di undur!',
+                type: 'warning',
+                showCancelButton: true,
+                confirmButtonText: 'Ya, padamlah!',
+                cancelButtonText: 'Tidak, masih sayang!'
+            }).then((result) => {
+
+                if (result.value) {
+
+                    // submit AJAX request to delete ticket id
+
+                    var ajax_data = {
+                        'ticket_id': id
+                    };
+
+                    $.ajax({
+                        url: "<?php echo site_url('ticket/delete'); ?>",
+                        data: ajax_data,
+                        method: "POST"
+                    }).done(function() {
+
+                        // bila dah siap delete baru bagitahu pengguna
+
+                        Swal.fire(
+                            'Dah Padam!',
+                            'Rekod ini telah pergi',
+                            'success'
+                        );
+
+                    });
+
+
+                } else if (result.dismiss === Swal.DismissReason.cancel) {
+                    Swal.fire(
+                        'Alhamdulillah',
+                        'Nasib baik tak padam :)',
+                        'error'
+                    )
+                }
+            });
+
+        }
+
+    }); // end of document ready
 
 
 </script>
