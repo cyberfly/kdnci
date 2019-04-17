@@ -13,7 +13,7 @@ class Captcha extends MY_Controller {
 
 	public function create()
     {
-        $captcha = generateCaptcha();
+        $captcha = generateCaptcha('test_captcha');
 
         var_dump($captcha);
     }
