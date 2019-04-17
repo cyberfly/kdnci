@@ -131,7 +131,13 @@ class Ticket extends MY_Controller {
 
 	public function delete()
 	{
+	    $ticket_id = $this->input->post('ticket_id');
 
+	    // delete from db
+
+	    $this->ticket_model->delete($ticket_id);
+
+	    echo 'success';
 	}
 
 	// generate dummy tickets for development
