@@ -68,7 +68,20 @@
                       </div>
                     </div>
 
-                    <!--  -->
+                    <!-- captcha field  -->
+
+                      <div class="col-md-12">
+                          <div class="form-group mb-0">
+                              <label class="form-label">Captcha</label>
+                              <div class="captcha_image">
+                                  <?php echo $captcha_image; ?>
+                              </div>
+                              <input type="text" name="captcha_code" class="form-control <?php if(form_error('captcha_code')){ echo 'is-invalid'; } ?>" placeholder="" value="<?php echo set_value('captcha_code'); ?>">
+                              <?php echo form_error('captcha_code', '<div class="invalid-feedback">', '</div>'); ?>
+                          </div>
+                      </div>
+
+                  <!-- end of captcha field  -->
 
                   </div>
                 </div>

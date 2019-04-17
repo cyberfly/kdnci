@@ -52,6 +52,7 @@ class Ticket extends MY_Controller {
 		$this->form_validation->set_rules('subject', 'Subject', 'required');
 		$this->form_validation->set_rules('category_id', 'Category', 'required');
 		$this->form_validation->set_rules('description', 'Description', 'required');
+		$this->form_validation->set_rules('captcha_code', 'Captcha', 'required|callback_captcha_check');
 
 		$this->form_validation->set_message('required', 'Sila masukkan medan {field}');
 
@@ -69,6 +70,14 @@ class Ticket extends MY_Controller {
 			// pass categories data to view
 
 			$data['categories'] = $categories;
+
+			// pass captcha image to user
+
+            $captcha = generateCaptcha( 'create_ticket');
+
+            $captcha_image = $captcha['image'];
+
+            $data['captcha_image'] = $captcha_image;
 
 			// load index.php from folder tickets as content
 
@@ -208,4 +217,18 @@ class Ticket extends MY_Controller {
 
 	}
 
+    public function captcha_check($str)
+    {
+        $stored_captcha_word = $this->session->userdata('create_ticket_captcha');
+
+        if ($str != $stored_captcha_word)
+        {
+            $this->form_validation->set_message('captcha_check', 'The {field} field must be correct');
+            return FALSE;
+        }
+        else
+        {
+            return TRUE;
+        }
+    }
 }
