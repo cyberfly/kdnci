@@ -94,12 +94,16 @@
 
             var ticket_title = $(this).attr('data-title');
 
-            confirmDelete(ticket_id, ticket_title);
+            // get current row
+
+            var current_row = $(this).closest('tr');
+
+            confirmDelete(ticket_id, ticket_title, current_row);
         } );
 
         // show delete confirm modal
 
-        function confirmDelete(id, title)
+        function confirmDelete(id, title, current_row)
         {
             Swal.fire({
                 title: 'Anda pasti nak padam ' + title + '?',
@@ -123,6 +127,10 @@
                         data: ajax_data,
                         method: "POST"
                     }).done(function() {
+
+                        // hide deleted ticket row
+
+                        current_row.hide(1000);
 
                         // bila dah siap delete baru bagitahu pengguna
 
