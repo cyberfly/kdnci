@@ -196,7 +196,7 @@ class Ticket extends MY_Controller {
 
 		$this->datatables->join('ticket_categories', 'ticket_categories.ticket_category_id = tickets.category_id');
 
-		$this->datatables->add_column('edit', '<a class="btn btn-primary" href="' . site_url('ticket/edit/$1').'" title="$2" >EDIT</a> <a class="delete btn btn-danger" data-id="$1" href="#" title="$2" >Delete</a>', 'id, subject');
+		$this->datatables->add_column('edit', edit_button('ticket/edit/$1') . ' '. delete_button('$1', '$2'), 'id, subject');
 
 		echo $this->datatables->generate();
 
