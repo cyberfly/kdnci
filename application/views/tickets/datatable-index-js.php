@@ -51,7 +51,8 @@
                 	"data": "subject"
                 },
                 {
-                	"data": "description"
+                	"data": "description",
+                    "width": "20%"
                 },
                 {
                 	"data": "ticket_category_name"

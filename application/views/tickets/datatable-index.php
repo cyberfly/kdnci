@@ -19,7 +19,7 @@
                     <h3 class="card-title">Tickets</h3>
                   </div>
                   <div class="">
-                    <table id="datatable" class="table card-table table-vcenter text-nowrap">
+                    <table id="datatable" class="table card-table table-vcenter">
                       <thead>
                         <tr>
                           <th class="w-1">Id</th>
