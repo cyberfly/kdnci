@@ -87,6 +87,12 @@
                         </a>
                     </li>
                     <li class="nav-item">
+                        <a class="nav-link" href="<?php echo site_url('learnphpword/create'); ?>">
+                            <span data-feather="file"></span>
+                            Learn PHPWord
+                        </a>
+                    </li>
+                    <li class="nav-item">
                         <a class="nav-link" href="#">
                             <span data-feather="file"></span>
                             Orders
