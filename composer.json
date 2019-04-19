@@ -12,9 +12,10 @@
 	},
 	"require": {
 		"php": ">=5.3.7",
-		"phpoffice/phpword": "^0.15.0",
+		"phpoffice/phpword": "^0.16.0",
 		"thiagoalessio/tesseract_ocr": "^2.7",
-		"fzaninotto/faker": "^1.8"
+		"fzaninotto/faker": "^1.8",
+		"phpoffice/phpspreadsheet": "^1.6"
 	},
 	"suggest": {
 		"paragonie/random_compat": "Provides better randomness in PHP 5.x"

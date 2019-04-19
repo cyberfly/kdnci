@@ -93,6 +93,12 @@
                         </a>
                     </li>
                     <li class="nav-item">
+                        <a class="nav-link" href="<?php echo site_url('learnphpexcel/create'); ?>">
+                            <span data-feather="file"></span>
+                            Learn PHP Spreadsheet
+                        </a>
+                    </li>
+                    <li class="nav-item">
                         <a class="nav-link" href="#">
                             <span data-feather="file"></span>
                             Orders
