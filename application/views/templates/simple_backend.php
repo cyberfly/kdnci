@@ -105,6 +105,12 @@
                         </a>
                     </li>
                     <li class="nav-item">
+                        <a class="nav-link" href="<?php echo site_url('imagemanipulation/create'); ?>">
+                            <span data-feather="file"></span>
+                            Upload & Compress Image
+                        </a>
+                    </li>
+                    <li class="nav-item">
                         <a class="nav-link" href="#">
                             <span data-feather="file"></span>
                             Orders
