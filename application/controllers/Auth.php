@@ -99,6 +99,12 @@ class Auth extends CI_Controller
 				'type' => 'password',
 			);
 
+            $announcement = getLatestAnnouncement();
+
+            // pass announcement to view
+
+            $this->data['announcement'] = $announcement;
+
 			$this->_render_page('auth' . DIRECTORY_SEPARATOR . 'login', $this->data);
 		}
 	}

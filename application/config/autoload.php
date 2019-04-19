@@ -89,7 +89,7 @@ $autoload['drivers'] = array();
 |
 |	$autoload['helper'] = array('url', 'file');
 */
-$autoload['helper'] = array('url','user','form','mydate', 'datatable', 'mycaptcha');
+$autoload['helper'] = array('url','user','form','mydate', 'datatable', 'mycaptcha', 'announcement');
 
 /*
 | -------------------------------------------------------------------
@@ -132,4 +132,4 @@ $autoload['language'] = array();
 |
 |	$autoload['model'] = array('first_model' => 'first');
 */
-$autoload['model'] = array('ticket_model');
+$autoload['model'] = array('ticket_model', 'announcement_model');

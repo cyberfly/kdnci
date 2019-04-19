@@ -34,3 +34,29 @@
 </form>
 </body>
 </html>
+<!--load Jquery-->
+<script src="<?php echo base_url(); ?>assets/js/jquery-3.4.0.min.js"></script>
+<!--load Sweet Alert-->
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@8"></script>
+<script>
+
+    $(document).ready(function(){
+
+        <?php
+
+            if(isset($announcement)) {
+
+        ?>
+            // load JS here
+
+            Swal.fire(
+                '<?php echo $announcement->title; ?>',
+                '<?php echo $announcement->description; ?>',
+                'question'
+            );
+
+        <?php } ?>
+
+    }); // end of document ready
+
+</script>
